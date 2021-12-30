@@ -1,0 +1,91 @@
+{% extends 'base\layout.html' %}
+
+
+{% block title %}
+    LogIn
+{% endblock title %}
+    
+{% block content %}
+    
+    <div class="content" id="login">
+        <div class="container" style="height:400px" id="rl1">
+            <div class="row justify-content-center">
+                <div class="col-md-7">
+                <div class="row justify-content-center" id="row-1">
+                    <div class="col-md-12" id="cl1">
+                        <h3><strong>Sign In To IeMinder</strong></h3>
+                        <form class="form" id="Sform" action="\LogIn" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="username" name="Username" class="form-control" id="Username"
+                                    aria-describedby="UsernameHelp" placeholder="UserName">
+                                <small id="UsernameHelp" class="form-text text-muted">
+                                    We'll never share your email with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <H6 id="pwV-message"></H6>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Accept Ruls</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="submitbotton">Submit</button>
+                            </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+        <script>
+            document.getElementById("Sform").submit=false;
+            document.getElementById("submitbotton").disabled = true;
+
+        function passwordvalidator(){
+            let pw  = document.querySelector("#exampleInputPassword1").value;
+
+                if(pw == ""){
+                    document.getElementById("pwV-message").innerHTML = "Fill the Password Please!";
+                    document.getElementById("pwV-message").style.color = "red";
+
+                }
+
+                else if (pw.length < 8){
+                    document.getElementById("pwV-message").innerHTML =  "Password length must be 8 characters at least!";
+                    document.getElementById("pwV-message").style.color ="red";
+
+                }
+                else if(pw.length > 15){
+                    document.getElementById("pwV-message").innerHTML = "Password must not exceed 15 characters";
+                    document.getElementById("pwV-message").style.color = "red";
+
+                }
+
+
+                else{
+                    document.getElementById("pwV-message").innerHTML = "good";
+                    document.getElementById("pwV-message").style.color = "green";
+                }
+
+        }
+
+            document.getElementById("exampleInputPassword1").addEventListener("keyup", passwordvalidator);
+            document.getElementById("exampleCheck1").addEventListener("change",function(){
+                    var ch = document.querySelector("#exampleCheck1");
+                    let pw  = document.querySelector("#exampleInputPassword1").value;
+                    let Username = document.querySelector("#Username").value;
+                    if (ch.checked){
+                        if(pw != "" && Username != ""){
+                            document.getElementById("submitbotton").disabled = false;
+                        }
+                    }
+                    else{
+                        document.getElementById("submitbotton").disabled = true;
+                    }
+            });
+</script>
+
+
+{% endblock content %}

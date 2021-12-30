@@ -1,0 +1,36 @@
+{% extends "base\layout.html" %}
+{% block title %}
+<strong>Home</strong>
+{% endblock %}
+
+{% block content %}
+
+        <!--A Bio-->
+        <div class="row" id="biopage">
+            <div class="container">
+                <!--First row OF Bio-->
+                <div class="row">
+                <div class="col-12">
+                    <h2 style="font-family: Arial;">About Me</h2>
+                    <hr width="80%"> 
+                </div>
+                </div>
+                <div class="row">
+    
+                    <div class="col-12 col-md-6 width-md-100%"> 
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/sSqNgsZ9RA8" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+                    </div>
+                    <div class="col-12 col-md-6" id="aboutparagraph">
+                    <div class="row">
+                    <p>
+                        {{Bio}}
+                    </p>
+                </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+{% endblock %}

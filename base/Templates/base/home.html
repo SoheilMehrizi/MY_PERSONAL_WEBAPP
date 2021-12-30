@@ -1,0 +1,187 @@
+{% extends "base\layout.html" %}
+{% block title %}
+<strong>Home</strong>
+{% endblock %}
+    
+{% block content %}
+    <!--A Bio-->
+    <div class="row" id="biorow">
+        <div class="container">
+            <!--First row OF Bio-->
+            <div class="row">
+            <div class="col-12">
+                <h2 style="font-family: Arial;"> <a href="/Bio" class="text-dark">About Me</a></h2>
+                <hr width="80%"> 
+            </div>
+            </div>
+            <div class="row">
+
+                <div class="col-12 col-md-6 width-md-100%">
+                    <!-- A Image Of Me That thats url`s in db -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/sSqNgsZ9RA8" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+                </div>
+                <div class="col-12 col-md-6" id="aboutparagraph">
+                <div class="row">
+                <p>
+                    <!-- Discription Of My Bio -->
+                    {{Bio}}
+                </p>
+            </div>
+                </div>                    
+            </div>
+        </div>
+    </div>
+    <!--Specialities-->
+    <div class="row" id="specialitiesrow">
+        <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h2 style="font-family: Arial;"> <a href="/Specialities" class="text-dark">specialities</a></h2>
+            <hr width="80%"> 
+            </div>
+        </div>
+        <div class = "row">
+            {% for SPEI in SPEIS %}
+            <div class="col-12 col-md-4">
+                <div class="card">
+                    <img src="https://images.wallpapersden.com/image/download/astro-bot-rescue-mission-robot_bGtlbGeUmZqaraWkpJRmbmdlrWZlbWU.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title text-dark">{{SPEI.name}}</h5>
+                    <p class="card-text text-dark">
+                        {{SPEI.Description}}    
+                    </p>
+                    <h6 class="text-right text-success"> {{SPEI.Date_Of_earn}} </h6>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        </div>
+    </div>
+    <!--Experiences-->
+    <div class="row" id="experiencesrow">
+        <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h2 style="font-family: Arial;"><a href="/Expriences" class="text-dark">Experiences</a></h2>
+            <hr width="80%">
+            {% for experience in experiences %}
+            <div class="row">
+                <div class="col-12 col-6">
+                    <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                        <img src="https://images.wallpapersden.com/image/download/astro-bot-rescue-mission-robot_bGtlbGeUmZqaraWkpJRmbmdlrWZlbWU.jpg" class="img-fluid rounded-start " style="height: 100%;" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{experience.name}}</h5>
+                            <p class="card-text">
+                                {{experience.Description}}
+                            </p>
+                            <p class="card-text"><small class="text-success" style="text-align: right;">{{experience.Date_Of_Earn}}</small></p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-0 col-6"></div>
+                
+            </div>              
+            {% endfor %}
+
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--ACADEMY-->
+    <div class="row" id="academyrow">
+        <div class="container">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                <div class="col-12">
+                    <h2 style="font-family: Arial;"> <a href="/Academy">ACADEMY</a></h2>
+                    <hr width="80%">
+                </div>
+                </div>
+            </div>
+        </div>
+        {% for academy in academies %}
+        <div class="row" id="Academyimg">
+            <div class="col-12 col-md-5">
+                <!--image-->
+                <div class="card bg-dark text-white">
+                <img src="https://eng.guilan.ac.ir/documents/576170/1655649/DJI_0084_Moment.jpg?t=1592035201682&imageThumbnail=3" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <h5 class="card-title text-primary">{{academy.name}}</h5>
+                    <h6 class="card-text text-primary"> {{academy.Degree}} </h6>
+                    <h6 class="card-text text-primary">{{academy.Date_Of_Graduation}}</h6>
+                </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4" id="academydiscription">
+                <p class="text-align-center text-dark">{{academy.Description}}</p>
+            </div>
+            <div class="col-0 col-md-3"></div>
+            </div>
+        
+        </div>
+        {% endfor %}
+    </div>
+    <!--CV-->
+    <div class="row" id="CVRow">
+        <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h2 style="font-family: Arial;"><a href="/CV">CV</a></h2>
+            <hr width="80%">
+            <div class="row" id="cvrow">
+                <div class="col-2 col-md-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-pdf" viewBox="0 0 16 16">
+                    <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+                    <path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"/>
+                </svg>
+                </div>
+                <div class="col-8 col-md-4">
+                <a href="" class="text-dark"><strong>Cv.pdf</strong></a>
+                </div>
+            </div> 
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--Contact-->
+    <div class="row" id="contactrow">
+        <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h2 style="font-family: Arial;"> <a href="/Contact" class="text-dark">Contact</a></h2>
+            <hr width="80%">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-0 col-md-3"></div>
+            <div class="col-12 col-md-6">
+            <form id="contactrow" action="/Contact" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                <label for="Message">Message</label>
+                <textarea type="text" name="message" class="form-control" id="Message" placeholder="Message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div class="col-0 col-md-6"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+{% endblock %}

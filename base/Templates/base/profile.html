@@ -1,0 +1,235 @@
+{% extends "base\layout.html" %}
+{% block title %}
+<strong>profile</strong>
+{% endblock %}
+
+{% block content %}
+    <div id="profile">
+        <div class="row justify-content-center">
+            <div class="col-0 col-md-2">
+            <div class="list-group">
+            <a class="list-group-item list-group-item-action fade show" id="list-personal-info-list" data-bs-toggle="list" href="#list-personal_info" role="tab" aria-controls="list-personal_info">PI</button>
+            <a class="list-group-item list-group-item-action fade show" id="Todoer-Box" data-bs-toggle="list" href="#Todoer" role="tab" aria-controls="Todoer">ToDoer</a>
+            <a class="list-group-item list-group-item-action fade show" id="Economy-form" data-bs-toggle="list" href="#Economy-setting" role="tab" aria-controls="Economy_setting">Economy</a>
+            <a class="list-group-item list-group-item-action fade show" id="list-tasks-list" data-bs-toggle="list" href="#list-tasks" role="tab" aria-controls="list-tasks">Tasks</a>
+            <a class="list-group-item list-group-item-action fade show" id="list-events-list" data-bs-toggle="list" href="#list-events" role="tab" aria-controls="list-events">Events</a>
+            <a class="list-group-item list-group-item-action fade show" id="list-habits-list" data-bs-toggle="list" href="#list-habits" role="tab" aria-controls="list-habits">Your Habits</a>
+            <a class="list-group-item list-group-item-action fade show" id="list-status-list" data-bs-toggle="list" href="#list-status" role="tab" aria-controls="list-status">Status</a>
+            </div>
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="container" id= "profiledesk">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade" id="list-personal_info" role="tabpane1" aria-labelledby="list-personal-info-list">Personal Information</div>
+                        
+                    <!--ToDoer-->  
+                    <div class="tab-pane fade" id="Todoer" role="tabpane2" aria-labelledby="Todoer-Box">
+                        <div id="TODOER">
+                            <h2 id="E_label"><strong>ToDoer</strong></h2>
+                            <form class="row form" action="/Todoer" method="post">
+                                {% csrf_token %}
+                                <div class = "col-12 col-md-4 input-group pr-md-0" id="Task_input">
+                                <input type="text" name="Task" placeholder="Task" class="form-control">
+                                </div>
+                                <div class="col-12 col-md-3 pr-md-0 pl-md-0">
+                                <select class="custom-select" name="Task_Category" id="category-input">
+                                    <option selected>Choose...</option>
+                                    {% for category in T_category %}
+                                        <option value="{{category}}">{{category}}</option> 
+                                    {% endfor %}
+                                </select>
+                                </div>
+                                <div class="col-12 col-md-5 input-group pl-md-0" id="date_input" >
+                                <input type="date" name="Deadline" class="form-control">
+                                </div>
+                                <div class="col-12  input-group">
+                                    <textarea class="form-control" autofocus="false" name="Description" id="Tdoer-discription"></textarea>
+                                </div>
+                                <div class="col-12 input-group-append">
+                                    <button class="btn btn-outline-secondary text-light btn-primary p-1" id="BTNEconomy_Todeor" type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                    </svg>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                    
+                    
+                    
+                    <!--Economy-->
+                    <div class="tab-pane fade" id="Economy-setting" role="tabpane3" aria-labelledby="Economy-form">
+                        <div id="E">
+                        <h2 id="E_label"><strong>Economy</strong></h2>
+                        <form class="row form" action="/Economy" method="post">
+                            {% csrf_token %}
+                            <div class="col-12 col-md-4 pr-md-0">
+                                <select class="custom-select" name="Category" id="category-input">
+                                    <option selected>Choose...</option>
+                                    {% for category in E_category %}
+                                    <option value="{{category}}">{{category}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class = "col-12 col-md-3 input-group pl-md-0 pr-md-0" id="Amount_input">
+                                <input type="text" name="Amount" placeholder="Amount" class="form-control">
+                            </div>
+                            <div class="col-12 col-md-5 input-group pl-md-0" id="date_input" >
+                                <input type="date" name="date" class="form-control">
+                            </div>
+                                <div class="col-12  input-group">
+                                <textarea class="form-control" autofocus="false" name="Description" id="economy-discription"></textarea>
+                                </div>
+                            <div class="col-12 input-group-append">
+                                <button class="btn btn-outline-secondary text-light btn-primary p-1" id="BTNEconomy_Todeor" type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+
+                        <!--TASKS-->
+                        <div class="tab-pane fade" id="list-tasks" role="tabpane4" aria-labelledby="list-tasks-list">
+                            <table class="table table-striped" style="width: 100%;">
+                                <thead>
+                                <tr scope="row">
+                                    <th scope="col">ToDo</th>
+                                    <th scope="col">Task</th>
+                                    <th scope="col">category</th>
+                                    <th scope="col">Deadline</th>
+                                    <th scope="col">Description</th>
+                                </tr>
+                                </thead>
+                                
+                                <form action="/Task_view" method="post">
+                                    {% csrf_token %}    
+                                    <tbody>
+                                        {% for task in tasks %}
+                                            <tr scope="row">
+                                                    <td scope="col">
+                                                        <div class="text-center p-2 input-group">
+                                                        <input type="checkbox" class="form-check" name="taskstatus" value="Done">
+                                                        </div>
+                                                    </td>
+                                                    <td scope="col">
+                                                        <div class="text-center">
+                                                        <strong>{{ task.Task }}</strong>
+                                                        </div>
+                                                    </td>
+                                                    <td scope="col">
+                                                        <div class="text-center">
+                                                        <strong> {{task.Task_category}} </strong>
+                                                        </div>
+                                                    </td>
+                                                    <td scope="col">
+                                                        <div class="text-center">
+                                                        <strong>{{task.Deadline}}</strong>
+                                                        </div>
+                                                    </td>
+                                                    <td scope="col">
+                                                        <a class="text-dark" data-toggle="collapse" href="#{{ task.Task }}" role="button" aria-expanded="false" aria-controls="Description">
+                                                        Description
+                                                        </a>  
+                                                        <div class="collapse" id="{{ task.Task }}">
+                                                        <div class="card card-body">
+                                                            {{task.Description}}
+                                                        </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                    </table>
+                                    <div class="row justify-content-end">
+                                    <div class="col-2">
+                                        <Button type="submit" action="/" class="btn btn-primary">Save Changes</Button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="list-events" role="tabpane5" aria-labelledby="list-events-list">Events</div>
+                        <div class="tab-pane fade" id="list-habits" role="tabpane6" aria-labelledby="list-habits-list">Habits</div>
+                        <div class="tab-pane fade" id="list-status" role="tabpane7" aria-labelledby="list-status-list">Status</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var triggerTabList = [].slice.call(document.querySelectorAll('#list-personal-info-list'))
+        triggerTabList.forEach(function (triggerEl) {
+        var tabTrigger = new bootstrap.Tab(triggerEl)
+
+        triggerEl.addEventListener('click', function (event) {
+        event.preventDefault()
+        tabTrigger.show()
+        })
+        })
+
+        var triggerTabList = [].slice.call(document.querySelectorAll('#Todoer-Box'))
+        triggerTabList.forEach(function (triggerEl) {
+        var tabTrigger = new bootstrap.Tab(triggerEl)
+
+        triggerEl.addEventListener('click', function (event) {
+        event.preventDefault()
+        tabTrigger.show()
+        })
+        })
+
+        var triggerTabList = [].slice.call(document.querySelectorAll('#Economy-form'))
+        triggerTabList.forEach(function (triggerEl) {
+        var tabTrigger = new bootstrap.Tab(triggerEl)
+
+        triggerEl.addEventListener('click', function (event) {
+        event.preventDefault()
+        tabTrigger.show()
+        })
+        })
+
+
+        var triggerTabList = [].slice.call(document.querySelectorAll('#list-tasks-list'))
+        triggerTabList.forEach(function (triggerEl) {
+        var tabTrigger = new bootstrap.Tab(triggerEl)
+
+        triggerEl.addEventListener('click', function (event) {
+        event.preventDefault()
+        tabTrigger.show()
+        })
+        })
+
+        var triggerTabList = [].slice.call(document.querySelectorAll('#list-events-list'))
+        triggerTabList.forEach(function (triggerEl) {
+        var tabTrigger = new bootstrap.Tab(triggerEl)
+
+        triggerEl.addEventListener('click', function (event) {
+        event.preventDefault()
+        tabTrigger.show()
+        })
+        })
+
+        var triggerTabList = [].slice.call(document.querySelectorAll('#list-habits-list'))
+        triggerTabList.forEach(function (triggerEl) {
+        var tabTrigger = new bootstrap.Tab(triggerEl)
+
+        triggerEl.addEventListener('click', function (event) {
+        event.preventDefault()
+        tabTrigger.show()
+        })
+        })
+
+        var triggerTabList = [].slice.call(document.querySelectorAll('#list-status-list'))
+        triggerTabList.forEach(function (triggerEl) {
+        var tabTrigger = new bootstrap.Tab(triggerEl)
+
+        triggerEl.addEventListener('click', function (event) {
+        event.preventDefault()
+        tabTrigger.show()
+        })
+    s    })
+    </script>
+    </script>
+{% endblock %}

@@ -1,0 +1,164 @@
+.LOGO{
+    width : 30px;
+}
+@font-face {
+    font-family: Arial, Helvetica, sans-serif;
+    src: url(sansation_light.woff);
+  }
+  
+#body{
+    background-color:#F8F9F9;
+}
+
+#layout.container {
+    margin-left  : auto;
+    margin-right : auto;
+    padding-left : 15px;
+    padding-right: 15px;
+    align-items: center;
+    background: rgba(191, 201, 202, 0.1);
+    border-radius:5px;
+}
+#navbar{
+    background-color: rgb(79, 118, 140);
+}
+#navbar.container{
+    margin-left  : auto;
+    margin-right : auto;
+    padding-left : 15px;
+    padding-right: 15px;
+    margin-bottom:5px;
+    background-color: black;
+    text-align: center;
+}
+#Footer{
+    background-color: rgb(79, 118, 140);
+}
+#Footer.container{
+    margin-left  : auto;
+    margin-right : auto;
+    padding-left : 15px;
+    padding-right: 15px;
+    align-items: center;
+
+
+}
+
+#footer-links{
+    padding-top: 15px;
+}
+#footer-a:visited {
+    color: black;
+  }
+#footer-a:hover {
+    color:dimgrey;
+    text-decoration:none;
+  }
+#footer-a:active {
+    text-decoration:none;
+    color:black;
+  }
+
+#social_Media_Links{
+    vertical-align: center;
+    text-align: center;
+}
+#aboutparagraph{
+    padding-top: 10px;
+    padding-left: 40px;
+}
+#specialitiesrow.row{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#Academyimg.row{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#academydiscription{
+    padding-top: 70px;
+}
+#cvrow.row{
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+#contactrow{
+    margin-bottom: 10px;
+}
+#biopage{
+    margin-bottom: 20px;
+}
+#specialitiespage.row{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#academypage{
+    padding-bottom: 10px;
+}
+#profile{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#profiledesk{
+    background-color: rgba(213, 234, 245, 0.2);
+    height: 350px;
+    width: 80%;
+}
+#economy-discription{
+    max-width: 100%;
+    max-height: 150px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+#E{
+    padding-top: 40px;
+}
+#TODOER{
+    padding-top: 40px;
+}
+#E_label{
+    font-family:monospace;
+    text-align: center;
+    font-size: 50px;
+}
+#BTNEconomy_Todeor{
+    margin-left: 380px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+#TaskCheckBox{
+    align-items: center;
+}
+
+#row-1{
+    text-align:center;
+    color:green;
+    width:80%;
+    padding-left:10%;
+    padding-bottom: 10px;
+}
+#cl1{
+    background-color:#F2F3F4;
+    height:500px;
+    padding-top:30px;
+    border-radius:5px;
+}
+#Sform{
+    text-align:center;
+    margin-top:100px;
+    width:90%;
+    padding-left:10%;
+}
+#submitbotton{
+    width:50%;
+    background-color:#82E0AA;
+}
+#loginBox{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#login.content{
+    padding-bottom: 7rem;
+    padding-top: 5px;
+    border-radius: 5px;
+}

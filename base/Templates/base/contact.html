@@ -1,0 +1,38 @@
+{% extends "base\layout.html" %}
+{% block title %}
+<strong>Contact</strong>
+{% endblock %}
+
+{% block content %}
+
+    <!--Contact-->
+    <div class="row">
+        <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h2 style="font-family: Arial;">Contact</h2>
+            <hr width="80%">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-0 col-md-3"></div>
+            <div class="col-12 col-md-6">
+                
+            <form id="contactrow" action="\Contact" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                <label for="Message">Message</label>
+                <textarea type="text" name="message" class="form-control" id="Message" placeholder="Message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div class="col-0 col-md-6"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base\layout.html" %}
+{% block title %}
+<strong>Academy</strong>
+{% endblock %}
+
+{% block content %}
+    <!--ACADEMY-->
+    {% for academy in academies %}    
+        <div class="row" id="academypage">
+            <div class="container">
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                    <div class="col-12">
+                        <h2 style="font-family: Arial;">ACADEMY</h2>
+                        <hr width="80%">
+                    </div>
+                    </div>
+                </div>
+            </div>
+                <div class="row" id="Academyimg">
+                <div class="col-12 col-md-5">
+                    <!--image-->
+                    <div class="card bg-dark text-white">
+                    <img src="https://eng.guilan.ac.ir/documents/576170/1655649/DJI_0084_Moment.jpg?t=1592035201682&imageThumbnail=3" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title text-dark">{{academy.name}}</h5>
+                        <h6 class="card-text text-dark"> {{academy.Degree}} </h6>
+                        <h6 class="card-text text-dark">{{academy.Date_Of_Graduation}}</h6>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4" id="academydiscription">
+                    <p class="text-align-center">{{academy.Description}}</p>
+                </div>
+                <div class="col-0 col-md-3"></div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

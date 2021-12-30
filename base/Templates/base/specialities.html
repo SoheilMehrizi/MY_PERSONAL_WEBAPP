@@ -1,0 +1,36 @@
+{% extends "base\layout.html" %}
+{% block title %}
+<strong>SPECIALITIES</strong>
+{% endblock %}
+
+{% block content %}
+    <!--Specialities-->
+    <div class="row" id="specialitiespage">
+        <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h2 style="font-family: Arial;">specialities</h2>
+            <hr width="80%"> 
+            </div>
+        </div>
+        <div class="row">
+            {% for SPEI in SPEIS %}
+                <div class="col-12 col-md-4">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ SPEI.name }}</h5>
+                    <p class="card-text">
+                        {{ SPEI.Description }}
+                    </p>
+                    <h6 class="text-success text-right">
+                        {{SPEI.Date_Of_earn}}
+                    </h6>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>    
+{% endblock %}
